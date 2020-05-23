@@ -114,7 +114,14 @@ namespace WindowsFormsApp1
             }
         }
 
-     
+        private void GameOverForm()
+        {
+            Hide();
+            Form5 form5 = new Form5();
+            form5.Size = new Size(450, 350);
+            form5.StartPosition = FormStartPosition.CenterScreen;
+            form5.ShowDialog();
+        }
 
         private void WriteCurrentScore(int score)
         {
@@ -153,25 +160,25 @@ namespace WindowsFormsApp1
             {
                 time.Stop();
                 WriteCurrentScore(score);
-                
+                GameOverForm(); 
             }
             if(tail[0].Location.X>= width - sizeOfSides+20)
             {
                 time.Stop();
                 WriteCurrentScore(score);
-               
+                GameOverForm();
             }
             if(tail[0].Location.Y< sizeOfSides - 20)
             {
                 time.Stop();
                 WriteCurrentScore(score);
-                
+                GameOverForm();
             }
             if(tail[0].Location.Y>= heigh - sizeOfSides+10)
             {
                 time.Stop();
                 WriteCurrentScore(score);
-             
+                GameOverForm();
             }
         }
 
@@ -185,7 +192,7 @@ namespace WindowsFormsApp1
                         tail[0].BackgroundImageLayout = ImageLayout.Zoom;
                         snakeY = -1;
                         snakeX = 0;
-                        
+                        //tail[0].BackgroundImageChanged();
                         break;
                     }
                 case Keys.Right:
@@ -220,10 +227,10 @@ namespace WindowsFormsApp1
                 case Keys.Back:
                     {
                         Hide();
-                        //Form1 form1 = new Form1();
-                        //form1.Size = new Size(615, 440);
-                        //form1.StartPosition = FormStartPosition.CenterScreen;
-                        //form1.ShowDialog();
+                        Form1 form1 = new Form1();
+                        form1.Size = new Size(615, 440);
+                        form1.StartPosition = FormStartPosition.CenterScreen;
+                        form1.ShowDialog();
                         break;
                     }
             }
